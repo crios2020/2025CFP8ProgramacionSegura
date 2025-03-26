@@ -1,0 +1,4 @@
+Pendientes
+
+-- Crear usuario de MySQL para cada app.
+-- Crear y aplicar Git Ignore.
