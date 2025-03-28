@@ -44,10 +44,11 @@ public class TestRepositories {
         
         ar.remove(ar.getById(5));
         
-        alumno=ar.getById(6);
+        alumno=ar.getById(10);
         if(alumno!=null && alumno.getId()!=0){
             alumno.setEdad(40);
-            alumno.setApellido("Mendoza");
+            //alumno.setApellido("ttttt");
+            alumno.setApellido("'-- ");
             ar.update(alumno);
         }
         

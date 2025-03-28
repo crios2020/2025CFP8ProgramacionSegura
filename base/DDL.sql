@@ -29,3 +29,6 @@ create table alumnos(
 );
 
 
+insert into cursos (titulo,profesor,dia,turno) values('Java','Gomez','MARTES','TARDE');
+select * from cursos;
+select * from alumnos;
