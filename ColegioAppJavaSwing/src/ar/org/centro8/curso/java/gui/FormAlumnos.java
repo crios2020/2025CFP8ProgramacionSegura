@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 public class FormAlumnos extends javax.swing.JInternalFrame {
     private I_CursoRepository cr=new CursoRepository(Connector.getConnection());
-    private I_AlumnoRepository ar=new AlumnoRepository(Connector.getConnection());
+    public I_AlumnoRepository ar=new AlumnoRepository(Connector.getConnection());
     public FormAlumnos() {
         super(
                 "Formulario de alumnos",        //title
