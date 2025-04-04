@@ -3,3 +3,5 @@ Pendientes
 -- Crear usuario de MySQL para cada app.
 -- Crear y aplicar Git Ignore.
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
+-- Sanitizar inputs
+-- Inicio de sessión en JSP
