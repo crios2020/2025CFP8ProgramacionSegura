@@ -1,0 +1,3 @@
+JCP Java Community Proccess (Consorcio que regula Java SE)
+
+Java EE, es un conjunto de especificaciones WEB
