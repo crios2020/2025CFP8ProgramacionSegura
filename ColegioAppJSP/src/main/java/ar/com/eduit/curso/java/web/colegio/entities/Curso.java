@@ -1,33 +1,43 @@
 package ar.com.eduit.curso.java.web.colegio.entities;
 
-import ar.com.eduit.curso.java.web.colegio.enums.Dia;
-import ar.com.eduit.curso.java.web.colegio.enums.Turno;
+//import ar.com.eduit.curso.java.web.colegio.enums.Dia;
+//import ar.com.eduit.curso.java.web.colegio.enums.Turno;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Curso {
 
     private int id;
     private String titulo;
     private String profesor;
-    private Dia dia;
-    private Turno turno;
+    private String dia;
+    //private Dia dia;
+    private String turno;
+    //private Turno turno;
     
-    public Curso() {
-	}
-
-	public Curso(String titulo, String profesor, Dia dia, Turno turno) {
+	public Curso(String titulo, String profesor, String dia, String turno) {
         this.titulo = titulo;
         this.profesor = profesor;
         this.dia = dia;
         this.turno = turno;
     }
 
-	public Curso(int id, String titulo, String profesor, Dia dia, Turno turno) {
+    /*
+    public Curso() {
+	}
+
+	public Curso(String titulo, String profesor, String dia, String turno) {
+        this.titulo = titulo;
+        this.profesor = profesor;
+        this.dia = dia;
+        this.turno = turno;
+    }
+
+	public Curso(int id, String titulo, String profesor, String dia, String turno) {
 		this.id = id;
 		this.titulo = titulo;
 		this.profesor = profesor;
@@ -65,20 +75,20 @@ public class Curso {
 		this.profesor = profesor;
 	}
 
-	public Dia getDia() {
+	public String getDia() {
 		return dia;
 	}
 
-	public void setDia(Dia dia) {
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 
-	public Turno getTurno() {
+	public String getTurno() {
 		return turno;
 	}
 
-	public void setTurno(Turno turno) {
+	public void setTurno(String turno) {
 		this.turno = turno;
 	}
-
+	*/
 }

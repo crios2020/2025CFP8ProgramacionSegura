@@ -10,12 +10,12 @@ public class TestEntityCurso {
         curso1.setTitulo("Java");
         System.out.println(curso1.getTitulo());
         System.out.println(curso1);
-
-        Curso curso2=new Curso("Python","Rodrigo",Dia.JUEVES,Turno.NOCHE);
-        System.out.println(curso2);
-
-        Curso curso3=new Curso(55, "HTML", "Bias", Dia.LUNES, Turno.TARDE);
-        System.out.println(curso3);
-        System.out.println(curso3.getId());
+//
+//        Curso curso2=new Curso("Python","Rodrigo",Dia.JUEVES,Turno.NOCHE);
+//        System.out.println(curso2);
+//
+//        Curso curso3=new Curso(55, "HTML", "Bias", Dia.LUNES, Turno.TARDE);
+//        System.out.println(curso3);
+//        System.out.println(curso3.getId());
     }
 }

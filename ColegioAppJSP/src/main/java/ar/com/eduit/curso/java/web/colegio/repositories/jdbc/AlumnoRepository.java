@@ -41,7 +41,7 @@ public class AlumnoRepository implements I_AlumnoRepository{
     @Override
     public void remove(Alumno alumno) {
         if(alumno==null) return;
-        try (PreparedStatement ps = conn.prepareStatement("update alumnos set activo='N' where id=?")) {
+        try (PreparedStatement ps = conn.prepareStatement("update alumnos set activo=false where id=?")) {
             ps.setInt(1, alumno.getId());
             ps.execute();
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class AlumnoRepository implements I_AlumnoRepository{
     @Override
     public List<Alumno> getAll() {
         List<Alumno>list=new ArrayList();
-        try(ResultSet rs=conn.createStatement().executeQuery("select * from alumnos where activo='S'")){
+        try(ResultSet rs=conn.createStatement().executeQuery("select * from alumnos where activo=true")){
             while(rs.next()){
                 list.add(
                     new Alumno(

@@ -14,7 +14,7 @@ public class TestCursoRepository {
         I_CursoRepository cr=new CursoRepository(Connector.getConnection());
 
         System.out.println("-- Método save() --");
-        Curso curso=new Curso("Herreria","Farias",Dia.VIERNES,Turno.MAÑANA);
+        Curso curso=new Curso("Herreria","Farias","VIERNES","MAÑANA");
         cr.save(curso);
         System.out.println(curso);
         if(curso.getId()>0) System.out.println(ColoresAnsi.ANSI_GREEN+"OK - Método save()"+ColoresAnsi.ANSI_RESET);
@@ -26,7 +26,7 @@ public class TestCursoRepository {
 
         System.out.println("-- Método update() --");
         curso=cr.getById(63);
-        curso.setDia(Dia.LUNES);
+        curso.setDia("LUNES");
         cr.update(curso);
 
 

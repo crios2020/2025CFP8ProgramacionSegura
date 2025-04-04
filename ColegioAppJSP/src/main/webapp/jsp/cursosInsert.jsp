@@ -7,11 +7,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	
 	try{
 		String titulo=request.getParameter("titulo");
 		String profesor=request.getParameter("profesor");
-		Dia dia=Dia.valueOf(request.getParameter("dia"));
-		Turno turno=Turno.valueOf(request.getParameter("turno"));
+		String dia=request.getParameter("dia");
+		String turno=request.getParameter("turno");
 		if(	titulo!=null && !titulo.isEmpty() &&
 			profesor!=null && !profesor.isEmpty()){
 			I_CursoRepository cr=new CursoRepository(Connector.getConnection());

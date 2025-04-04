@@ -10,6 +10,10 @@ public class ColegioApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ColegioApplication.class, args);
+		
+		//http://localhost:8082/index.jsp
+		// user: root	pass:123
+		
 	}
 
 }

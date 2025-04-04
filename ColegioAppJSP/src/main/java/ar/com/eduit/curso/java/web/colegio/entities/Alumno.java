@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Alumno {
     
     private int id;
@@ -15,9 +15,17 @@ public class Alumno {
     private int edad;
     private int id_curso;
 
-    public Alumno() {
-	}
+	public Alumno(String nombre, String apellido, int edad, int id_curso) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.id_curso = id_curso;
+    }
 
+	/*
+    public Alumno() {
+ 	}
+ 
 	public Alumno(String nombre, String apellido, int edad, int id_curso) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -78,5 +86,5 @@ public class Alumno {
 	public void setId_curso(int id_curso) {
 		this.id_curso = id_curso;
 	}
-
+	*/
 }

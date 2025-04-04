@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.com.eduit.curso.java.web.colegio.entities.Curso;
-import ar.com.eduit.curso.java.web.colegio.enums.Dia;
-import ar.com.eduit.curso.java.web.colegio.enums.Turno;
+//import ar.com.eduit.curso.java.web.colegio.enums.Dia;
+//import ar.com.eduit.curso.java.web.colegio.enums.Turno;
 import ar.com.eduit.curso.java.web.colegio.repositories.interfaces.I_CursoRepository;
 
 public class CursoRepository implements I_CursoRepository {
@@ -27,8 +27,8 @@ public class CursoRepository implements I_CursoRepository {
                 PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, curso.getTitulo());
             ps.setString(2, curso.getProfesor());
-            ps.setString(3, curso.getDia().toString());
-            ps.setString(4, curso.getTurno().toString());
+            ps.setString(3, curso.getDia());
+            ps.setString(4, curso.getTurno());
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next())
@@ -43,7 +43,7 @@ public class CursoRepository implements I_CursoRepository {
         if (curso == null) return;
         // try (PreparedStatement ps=conn.prepareStatement("delete from cursos where
         // id=?")) {
-        try (PreparedStatement ps = conn.prepareStatement("update cursos set activo='N' where id=?")) {
+        try (PreparedStatement ps = conn.prepareStatement("update cursos set activo=false where id=?")) {
             ps.setInt(1, curso.getId());
             ps.execute();
         } catch (Exception e) {
@@ -58,8 +58,8 @@ public class CursoRepository implements I_CursoRepository {
             "update cursos set titulo=?, profesor=?, dia=?, turno=?  where id=?")) {
             ps.setString(1, curso.getTitulo());
             ps.setString(2, curso.getProfesor());
-            ps.setString(3, curso.getDia().toString());
-            ps.setString(4, curso.getTurno().toString());
+            ps.setString(3, curso.getDia());
+            ps.setString(4, curso.getTurno());
             ps.setInt(5, curso.getId());
             ps.execute();
         } catch (Exception e) {
@@ -70,15 +70,15 @@ public class CursoRepository implements I_CursoRepository {
     @Override
     public List<Curso> getAll() {
         List<Curso> list = new ArrayList();
-        try (ResultSet rs = conn.createStatement().executeQuery("select * from cursos where activo='S'")) {
+        try (ResultSet rs = conn.createStatement().executeQuery("select * from cursos where activo=true")) {
             while (rs.next()) {
                 list.add(
                         new Curso(
                                 rs.getInt("id"), // id
                                 rs.getString("titulo"), // titulo
                                 rs.getString("profesor"), // profesor
-                                Dia.valueOf(rs.getString("dia")), // dia
-                                Turno.valueOf(rs.getString("turno")) // turno
+                                rs.getString("dia"), // dia
+                                rs.getString("turno") // turno
                         ));
             }
         } catch (Exception e) {
