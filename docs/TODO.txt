@@ -5,3 +5,6 @@ Pendientes
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
 -- Sanitizar inputs
 -- Inicio de sessión en JSP
+-- Revisar consola de server en app Web
+-- Revisar Parametros por POST en situaciones criticas de app web
+-- GitIgnore LoginServlet.java
