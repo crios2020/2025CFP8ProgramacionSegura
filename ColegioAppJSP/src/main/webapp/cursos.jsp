@@ -15,7 +15,7 @@
 			de cursos</h1>
 
 		<!-- Formulario de alta de cursos -->
-		<form method='GET'>
+		<form method='POST'>
 
 			<!--  Título -->
 			<div class="mb-3 row m-2 p-2">

@@ -7,6 +7,13 @@
 </head>
 <body onload="startTime()">
 
+	<%
+		if(	session.getAttribute("login")==null ||
+			!session.getAttribute("login").equals("true")
+		) 
+			response.sendRedirect("error.html");
+	%>
+
 	<div class="container-fluid bg-success-subtle">
 
 		<%@ include file="/jsp/menu.jsp" %>
