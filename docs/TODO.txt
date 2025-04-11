@@ -8,3 +8,4 @@ Pendientes
 -- Revisar consola de server en app Web
 -- Revisar Parametros por POST en situaciones criticas de app web
 -- GitIgnore LoginServlet.java
+-- Revisar control de sessión en todas las url posibles de app JSP y PHP
