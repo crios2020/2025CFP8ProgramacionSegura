@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("login", true);
                     session.setAttribute("user", "root");
                     response.sendRedirect("/index.jsp");
+                    
                 }else{
                     session.setAttribute("login", false);
                     response.sendRedirect("/error.html");

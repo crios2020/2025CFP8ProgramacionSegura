@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- <%@ include file="/jsp/login.jsp" %> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,24 +8,16 @@
 </head>
 <body onload="startTime()">
 
-	<%
-		if(	session.getAttribute("login")==null ||
-			!session.getAttribute("login").equals("true")
-		) 
-			response.sendRedirect("error.html");
-	%>
-
 	<div class="container-fluid bg-success-subtle">
 
 		<%@ include file="/jsp/menu.jsp" %>
 	
 		<h1 class="text-primary text-center bg-secondary-subtle">Sistema de colegio</h1>
 
-	<div class="text-center">
-	  	<img src="/img/colegio.jpg" class="img-fluid" alt="colegio" width="100%">
-	</div>
+		<div class="text-center">
+			<img src="/img/colegio.jpg" class="img-fluid" alt="colegio" width="100%">
+		</div>
 		
-
 	</div>
 
 	<script

@@ -7,7 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	
+	//http://localhost:8082/jsp/cursosInsert.jsp?titulo=xxxx&profesor=xxxx&dia=LUNES&turno=NOCHE
 	try{
 		String titulo=request.getParameter("titulo");
 		String profesor=request.getParameter("profesor");
