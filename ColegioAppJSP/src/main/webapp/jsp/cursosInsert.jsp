@@ -13,6 +13,12 @@
 		String profesor=request.getParameter("profesor");
 		String dia=request.getParameter("dia");
 		String turno=request.getParameter("turno");
+		System.out.println("***************************************");
+		System.out.println(titulo);
+		System.out.println(profesor);
+		System.out.println(dia);
+		System.out.println(turno);
+		System.out.println("***************************************");
 		if(	titulo!=null && !titulo.isEmpty() &&
 			profesor!=null && !profesor.isEmpty()){
 			I_CursoRepository cr=new CursoRepository(Connector.getConnection());
