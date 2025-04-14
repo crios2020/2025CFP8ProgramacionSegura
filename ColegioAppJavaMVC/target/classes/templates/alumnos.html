@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio</title>
+    <link rel="icon" href="/icons/escuela.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body onload="cargarReloj()">
+    <div class="container-md bg-secondary-subtle">
+
+        <!-- Menú de navegación -->
+        <div th:insert="/fragments/menu.html :: menu"></div>
+
+        <!-- Banner -->
+        <h1 class="text-primary text-center bg-secondary-subtle m-2 p-2">Mantenimiento de Alumnos</h1>
+
+        <!-- Formulario de cursos -->
+        <form class="p-2" th:object="${alumno}" th:action="@{/alumnosSave}" method="post">
+
+            <!-- Nombre -->
+            <div class="mb-3 row m-2">
+                <label for="nombre" class="col-sm-4 col-form-label text-primary">
+                    Nombre
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-primary" id="nombre" required minlength="3"
+                        th:field="*{nombre}" maxlength="25">
+                </div>
+            </div>
+
+            <!-- Apellido -->
+            <div class="mb-3 row m-2">
+                <label for="apellido" class="col-sm-4 col-form-label text-primary">
+                    Apellido
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-primary" id="apellido" required minlength="3"
+                        th:field="*{apellido}" maxlength="25">
+                </div>
+            </div>
+
+            <!-- Edad -->
+            <div class="mb-3 row m-2">
+                <label for="edad" class="col-sm-4 col-form-label text-primary">
+                    Edad
+                </label>
+                <div class="col-sm-8">
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control text-primary" id="edad" required min="18"
+                            th:field="*{edad}" max="120">
+                    </div>
+                </div>
+            </div>
+
+            <!-- IdCurso -->
+            <div class="mb-3 row m-2">
+                <label for="idCurso" class="col-sm-4 col-form-label text-primary">
+                    Curso
+                </label>
+                <div class="col-sm-8">
+                    <select class="form-select text-primary" aria-label="Default select example" th:field="*{idCurso}">
+                        <option th:each="curso : ${cursos}" th:value="${curso.id}"
+                            th:text="${curso.id}+' '+${curso.titulo}+' '+${curso.profesor}+' '+${curso.dia}+' '+${curso.turno}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="mb-3 row m-2">
+                <button type="reset" class="btn btn-danger col-sm-4 m-2">Limpiar</button>
+                <button type="submit" class="btn btn-success col-sm-4 m-2">Guardar</button>
+            </div>
+
+            <!-- info -->
+            <div class="mb-3 row m-2">
+                <label for="info" class="col-sm-4 col-form-label text-primary">
+                    Información:
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" th:value="${mensaje}" class="form-control text-primary" id="info" readonly>
+                </div>
+            </div>
+        </form>
+
+        <!-- Tabla -->
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="text-danger" scope="col">Id</th>
+                    <th class="text-danger" scope="col">Nombre</th>
+                    <th class="text-danger" scope="col">Apellido</th>
+                    <th class="text-danger" scope="col">Edad</th>
+                    <th class="text-danger" scope="col">Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="alumno : ${likeApellido}">
+                    <th class="text-info" scope="row" th:text="${alumno.id}"></th>
+                    <td class="text-info" th:text="${alumno.nombre}"></td>
+                    <td class="text-info" th:text="${alumno.apellido}"></td>
+                    <td class="text-info" th:text="${alumno.edad}"></td>
+                    <td class="text-info" th:text="${alumno.idCurso}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/js/reloj.js"></script>
+</body>
+
+</html>

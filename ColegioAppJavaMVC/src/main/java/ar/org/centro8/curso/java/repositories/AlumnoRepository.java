@@ -18,7 +18,7 @@ public class AlumnoRepository {
     public void save(Alumno alumno) {
         if (alumno == null) return;
         try (PreparedStatement ps = conn.prepareStatement(
-                "insert into alumnos (nombre,apellido,edad,idCurso) values (?,?,?,?)",
+                "insert into alumnos (nombre,apellido,edad,id_curso) values (?,?,?,?)",
                 PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, alumno.getNombre());
             ps.setString(2, alumno.getApellido());
@@ -33,14 +33,15 @@ public class AlumnoRepository {
         }
     }
 
-    public void remove(Alumno alumno){
+    public void remove(Alumno alumno) {
         if(alumno==null) return;
-        try (PreparedStatement ps=conn.prepareStatement(
-            "delete from alumnos where id=?")){
+        //try (PreparedStatement ps=conn.prepareStatement("delete from alumnos where id=?")){
+        try (PreparedStatement ps=conn
+                .prepareStatement("update alumnos set activo=false where id=?")){
             ps.setInt(1, alumno.getId());
             ps.execute();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -48,14 +49,14 @@ public class AlumnoRepository {
         List<Alumno> list = new ArrayList();
         try (ResultSet rs = conn
                 .createStatement()
-                .executeQuery("select * from alumnos")) {
+                .executeQuery("select * from alumnos where activo=true")) {
             while (rs.next()) {
                 list.add(new Alumno(
                         rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getString("apellido"),
                         rs.getInt("edad"),
-                        rs.getInt("idCurso")));
+                        rs.getInt("id_curso")));
             }
         } catch (Exception e) {
             System.out.println(e);

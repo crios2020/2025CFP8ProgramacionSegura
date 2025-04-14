@@ -6,14 +6,14 @@ import java.sql.DriverManager;
 public class Connector {
     
     //localhost
-    private static String url="jdbc:sqlite:./data/colegio";
-    private static String user="";
-    private static String pass="";
+    //private static String url="jdbc:sqlite:./data/colegio";
+    //private static String user="";
+    //private static String pass="";
 
     //localhost
-    // private static String url="jdbc:mariadb://localhost:3306/colegio";
-    // private static String user="root";
-    // private static String pass="";
+    private static String url="jdbc:mariadb://localhost:3306/colegio";
+    private static String user="root";
+    private static String pass="";
 
     //db4free
     //private static String url="jdbc:mariadb://db4free.net:3306/basegeneral";
