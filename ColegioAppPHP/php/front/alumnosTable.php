@@ -4,8 +4,8 @@ $connector = new Connector();
 //$registros = $connector->getAll("alumnos");
 $buscar = "";
 if (isset($_REQUEST['buscar'])) $buscar = $_REQUEST['buscar'];
-//$registros = $connector->get("alumnos a join cursos c on a.id_curso=c.id", "apellido like '%" . $buscar . "%' and a.activo=true; -- ");
-$registros = $connector->get("v_alumnos", "apellido like '%" . $buscar . "%'");
+$registros = $connector->get("alumnos a join cursos c on a.id_curso=c.id", "apellido like '%" . $buscar . "%' and a.activo=true; -- ");
+//$registros = $connector->get("v_alumnos", "apellido like '%" . $buscar . "%'");
 foreach ($registros as $registro) {
     echo ("<tr>");
     echo ("<td>" . $registro['id'] . "</td>");

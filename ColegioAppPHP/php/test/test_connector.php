@@ -2,7 +2,7 @@
 <?php
 include_once '../connectors/connector.php';
 
-//http://localhost/objetos/clase29/php/test/test_connector.php
+//http://localhost/ColegioAppPHP/php/test/test_connector.php
     
 
 echo '-- Inicio de Test Connector --<br>';
