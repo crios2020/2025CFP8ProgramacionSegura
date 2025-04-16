@@ -22,6 +22,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ((HttpServletResponse) response)
+                .addHeader("Access-Control-Allow-Origin", "192.168.16.244");
         try (PrintWriter out=new PrintWriter(response.getOutputStream())){
             //Salida
             //out.println("<h1>Hola Mundo Servlet!!</h1>");

@@ -26,7 +26,7 @@
 			<!-- Boton buscar -->
 			<form class="d-flex m-2" role="search">
 				<input class="form-control me-2" type="search" placeholder="Search"
-					aria-label="Search" name="buscar">
+					aria-label="Search" name="buscar" id="buscar">
 				<button class="btn btn-outline-success" type="submit">Buscar</button>
 			</form>
 
