@@ -4,6 +4,9 @@
 #Connector Java
 **/Connector.java
 
+#Propiedades Spring
+**/resources/application.properties
+
 # Compiled class file
 *.class
 
