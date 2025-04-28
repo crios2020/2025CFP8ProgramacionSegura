@@ -1,0 +1,28 @@
+Pages Lenguages (Lenguajes de páginas en servidor)
+
+PHP Programming Hypertext Pages
+ASP	Asincroning Server Pages
+JSP Java Server Pages
+
+Extension VSCode
+JSP Language Support for VSCode
+Jeromy Llerena (No Funciono)
+
+
+Eclipse for java & Web Developer		eclipse.org
+
+STS (Spring tools Suite)				https://spring.io/tools
+
+
+Java Standard				JDK			(java Swing)
+Java Community Proccess	consorcio que regula el JDK
+
+
+
+Java EE - Jakarta EE	conjunto de especificaciones para java Web
+Especificaciones más populares (Servlet, JSP, JSF, JPA, JaxRS)
+
+
+
+
+
