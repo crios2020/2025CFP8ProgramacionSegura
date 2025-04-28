@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import ar.org.centro8.curso.java.connectors.Connector;
+import ar.org.centro8.curso.java.connectors.ConnectorExample;
 import ar.org.centro8.curso.java.utils.Properties;
 
 @Controller
@@ -18,7 +18,7 @@ public class ConfiguracionController {
         model.addAttribute("location", Properties.getLocation());
         model.addAttribute("ip", Properties.getIp());
         model.addAttribute("date", Properties.getDate());
-        model.addAttribute("url", Connector.getUrl());
+        model.addAttribute("url", ConnectorExample.getUrl());
         return "configuracion";
     }
 

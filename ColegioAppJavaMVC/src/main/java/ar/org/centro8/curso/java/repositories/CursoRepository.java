@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.org.centro8.curso.java.connectors.Connector;
+import ar.org.centro8.curso.java.connectors.ConnectorExample;
 import ar.org.centro8.curso.java.entities.Curso;
 import ar.org.centro8.curso.java.enums.Dia;
 import ar.org.centro8.curso.java.enums.Turno;
 
 public class CursoRepository {
-    private Connection conn = Connector.getConnection();
+    private Connection conn = ConnectorExample.getConnection();
 
     public void save(Curso curso) {
         if (curso == null)
