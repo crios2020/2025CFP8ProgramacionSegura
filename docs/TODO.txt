@@ -3,13 +3,12 @@ Pendientes
 -- Agregar integridad referencial
 -- Agregar constraints a la BD
 -- Agregar registros de prueba
-
+-- Revisar gitignore
 
 
 
 -- Crear usuario de MySQL para cada app.
 -- Usar triggers para poner reglas de seguridad en bd
--- Revisar gitingore
 -- Crear y aplicar Git Ignore. LoginServlet.java y otros
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
 -- Sanitizar inputs en todas las apss
