@@ -1,3 +1,9 @@
+#Conector de app php
+**/connector.php
+
+#Connector Java
+**/Connector.java
+
 # Compiled class file
 *.class
 
