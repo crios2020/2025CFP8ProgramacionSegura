@@ -1,0 +1,24 @@
+<script src="https://crios2020.github.io/js/util.js"></script>
+<script>
+    print("hola mundo!")
+    hablar("hola mundo!")
+    llueve=getLlueve()
+    temperatura=getTemperatura()
+    print(llueve)
+    print(temperatura)
+    print("La temperatura es "+temperatura+" grados")
+    hablar("La temperatura es "+temperatura+" grados")
+    if(temperatura<10){
+        print("hace frio ponete un abrigo")
+        hablar("hace frio ponete un abrigo")
+    }
+    if(temperatura>20){
+        print("el clima esta agradable")
+        hablar("el clima esta agradable")
+    }
+    if(llueve){
+        print("Esta lloviendo, sali con un paraguas!")
+        hablar("Esta lloviendo, sali con un paraguas!")
+    }
+    print("La cotización del dolar es "+getValorDolar())
+</script>
