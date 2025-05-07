@@ -1,4 +1,4 @@
--- Active: 1745606726772@@127.0.0.1@3306
+-- Active: 1745606726772@@127.0.0.1@3306@colegio
 use colegio;
 drop table if exists usuarios;
 create table usuarios(
@@ -11,3 +11,5 @@ create table usuarios(
 insert into usuarios (nombre, apellido, email) values 
     ('Juan','Perez','JuanPerez@gmail.com'),
     ('Laura','Gomez','LauraGomez@gmail.com');
+
+select * from usuarios;
