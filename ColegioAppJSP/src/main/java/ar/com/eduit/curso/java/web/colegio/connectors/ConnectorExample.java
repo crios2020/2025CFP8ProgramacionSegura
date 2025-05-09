@@ -8,8 +8,8 @@ public class ConnectorExample {
     
     //Localhost
     private static String url="jdbc:mariadb://xxxx:3333/xxxx";
-    private static String user="ColegioAppJSP";
-    private static String pass="1234";
+    private static String user="xxx";
+    private static String pass="xxx";
 
     private static Connection conn=null;
     
