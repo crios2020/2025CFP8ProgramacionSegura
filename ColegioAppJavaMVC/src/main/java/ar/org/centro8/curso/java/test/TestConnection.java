@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import ar.org.centro8.curso.java.connectors.ConnectorExample;
+import ar.org.centro8.curso.java.connectors.Connector;
 
 public class TestConnection {
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -18,7 +18,7 @@ public class TestConnection {
     public static final String ANSI_RESET = "\u001B[0m";
     public static void main(String[] args) {
         LocalDateTime inicio=LocalDateTime.now();
-        try (ResultSet rs=ConnectorExample
+        try (ResultSet rs=Connector
                                     .getConnection()
                                     .createStatement()
                                     .executeQuery("select * from cursos")) {
