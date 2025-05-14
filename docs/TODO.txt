@@ -10,7 +10,7 @@ Pendientes
 -- Crear usuario de MySQL para cada app. (insert - delete - update - select)
 -- 		(4 usuarios)
 
-
+-- Exigir longitud de clave y seguridad en js
 -- Usar triggers para poner reglas de seguridad en bd
 -- Crear y aplicar Git Ignore. LoginServlet.java y otros
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
