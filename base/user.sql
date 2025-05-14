@@ -13,3 +13,4 @@ insert into usuarios (nombre, apellido, email) values
     ('Laura','Gomez','LauraGomez@gmail.com');
 
 select * from usuarios;
+select * from usuarios where email='Carlos@gmail.com';
