@@ -4,15 +4,15 @@ Pendientes
 -- Agregar constraints a la BD
 -- Agregar registros de prueba
 -- Revisar gitignore
-
-
-
--- Crear usuario de MySQL para cada app. (insert - delete - update - select)
--- 		(4 usuarios)
-
 -- Exigir longitud de clave y seguridad en js
 -- Usar triggers para poner reglas de seguridad en bd
+-- Crear usuario de MySQL para cada app. (insert - delete - update - select)
+-- 		(4 usuarios)
 -- Crear y aplicar Git Ignore. LoginServlet.java y otros
+
+
+
+
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
 -- Sanitizar inputs en todas las apss
 -- Inicio de sessión en JSP

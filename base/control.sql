@@ -35,6 +35,7 @@ select * from information_schema.TRIGGERS
 insert into cursos values 
     (null,'Herreria','Gimenez','LUNES','TARDE',true);
 
+DROP TRIGGER IF EXISTS tr_cursos_delete;
 CREATE TRIGGER tr_cursos_delete
     AFTER DELETE ON cursos
     FOR EACH ROW
@@ -61,4 +62,39 @@ END;$$
 delete from cursos where id=10;
 select * from control_auditoria;
 
--- TODO Triggers Alumnos
+-- Triggers Alumnos
+drop trigger if exists tr_alumnos_insert;
+DELIMITER $$
+CREATE TRIGGER tr_alumnos_insert
+    AFTER INSERT ON alumnos
+    FOR EACH ROW
+    BEGIN
+        insert into control_auditoria VALUES (
+            null,'ALUMNOS','INSERT',NEW.id,user(),'',sysdate()
+    );
+END;$$
+
+DROP TRIGGER IF EXISTS tr_alumnos_delete;
+CREATE TRIGGER tr_alumnos_delete
+    AFTER DELETE ON alumnos
+    FOR EACH ROW
+    BEGIN
+        insert into control_auditoria VALUES (
+            null,'ALUMNOS','DELETE',OLD.id,user(),'',sysdate()
+    );
+END;$$
+
+DROP TRIGGER if EXISTS tr_alumnos_update;
+CREATE TRIGGER tr_alumnos_update
+    AFTER UPDATE ON alumnos
+    FOR EACH ROW
+    BEGIN
+        IF (NEW.activo=OLD.activo) THEN
+            insert into control_auditoria VALUES (
+            null,'ALUMNOS','UPDATE',NEW.id,user(),'',sysdate());
+        ELSE
+            insert into control_auditoria VALUES (
+            null,'ALUMNOS','DELETE',NEW.id,user(),'',sysdate());
+        END IF;
+
+END;$$
