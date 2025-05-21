@@ -12,7 +12,8 @@ Pendientes
 
 
 
-
+-- Migrar appJavaMVC a spring-data
+-- Migrar a interfaces de repositorio appJavaMVS
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
 -- Sanitizar inputs en todas las apss
 -- Inicio de sessión en JSP
@@ -22,6 +23,6 @@ Pendientes
 -- Revisar control de sessión en todas las url posibles de app JSP y PHP
 -- Revisar corregir repositorios de todos los sistemas, para que realicen un update en vez de delete en curso y alumno class
 -- Revisar método getAll en repositorios para asegurar que muestre solo los registros activos.
--- Migrar a interfaces de repositorio appJavaMVS
--- Migrar appJavaMVC a spring-data
+
+
 

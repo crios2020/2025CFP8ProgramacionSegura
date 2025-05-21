@@ -14,3 +14,27 @@ insert into usuarios (nombre, apellido, email) values
 
 select * from usuarios;
 select * from usuarios where email='Carlos@gmail.com';
+
+SELECT SHA2('contraseña', 512);
+
+-- Delimitador alternativo para evitar problemas con el punto y coma en el código del trigger
+DELIMITER $$
+DROP TRIGGER IF EXISTS tr_usuarios_insert;
+-- Crear el trigger BEFORE INSERT para la tabla 'mi_tabla'
+CREATE TRIGGER tr_usuarios_insert
+BEFORE INSERT
+ON usuarios
+FOR EACH ROW
+BEGIN
+  -- Modificar el valor de la columna 'mi_columna' en la nueva fila
+  SET NEW.clave = SHA2(NEW.clave, 512);
+  --  Opcional: Agregar lógica para realizar otras modificaciones
+  --  ...
+END; $$
+-- Restaurar el delimitador original
+DELIMITER ;
+
+insert into usuarios (nombre, apellido, email,clave) values 
+    ('Juan','Perez','JuanPerez@gmail.com','1234'),
+    ('Laura','Gomez','LauraGomez@gmail.com','4321');
+select * from usuarios;
