@@ -9,10 +9,10 @@ Pendientes
 -- Crear usuario de MySQL para cada app. (insert - delete - update - select)
 -- 		(4 usuarios)
 -- Crear y aplicar Git Ignore. LoginServlet.java y otros
-
-
-
 -- Migrar appJavaMVC a spring-data
+
+
+-- Revisar corregir repositorios de todos los sistemas, para que realicen un update en vez de delete en curso y alumno class
 -- Migrar a interfaces de repositorio appJavaMVS
 -- Ataque por STUBs.  (Poner modificador final y private para dar seguridad)
 -- Sanitizar inputs en todas las apss
@@ -21,7 +21,7 @@ Pendientes
 -- Revisar consola de server en app Web
 -- Revisar Parametros por POST en situaciones criticas de app web
 -- Revisar control de sessión en todas las url posibles de app JSP y PHP
--- Revisar corregir repositorios de todos los sistemas, para que realicen un update en vez de delete en curso y alumno class
+
 -- Revisar método getAll en repositorios para asegurar que muestre solo los registros activos.
 
 
