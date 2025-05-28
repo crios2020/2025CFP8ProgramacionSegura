@@ -23,7 +23,7 @@
         <input type="password" name="clave2" id="clave2"
             require minLength=8 maxLength=20><br>
         <button type="reset">Borrar</button><br>
-        <button type="submit" onclick="validar() ,cifrar()">Enviar</button>
+        <button type="submit" onclick="cifrar()" onsubmit="validar()">Enviar</button>
 
         <!-- 
         Para exigir que una contraseña contenga letras minúsculas, letras mayúsculas y números en un control de tipo password en HTML, puedes utilizar el atributo pattern junto con una expresión regular. Aquí tienes un ejemplo:
@@ -75,22 +75,27 @@
     <script>
         
         function validar(){
+            //alert("Se ejecuto la funcion validar")
+            //console.log("Se ejecuto la funcion validar")
             pass1=document.getElementById('clave1').value
             pass2=document.getElementById('clave2').value
-            if(pass1!=pass2) alert('Las claves no coinciden')
+            //if(pass1!=pass2) alert('Las claves no coinciden')
+            return pass1==pass2
         }
 
         function cifrar() {
+            //alert("Se ejecuto la funcion cifrar")
+            //console.log("Se ejecuto la funcion cifrar")
             var input_pass1 = document.getElementById('clave1')
             var input_pass2 = document.getElementById('clave2')
             //input_pass.value=hex_md4(input_pass.value)
             //input_pass.value=hex_md5(input_pass.value)
             //input_pass.value = hex_sha1(input_pass.value)
             input_pass1.value=CryptoJS
-                                        .SHA256(input_pass.value)
+                                        .SHA256(input_pass1.value)
                                         .toString(CryptoJS.enc.Base64) 
             input_pass2.value=CryptoJS
-                                        .SHA256(input_pass.value)
+                                        .SHA256(input_pass2.value)
                                         .toString(CryptoJS.enc.Base64)     
         }
     </script>
@@ -112,18 +117,18 @@
     );
 
     if (
-        array_key_exists('nombre', $_REQUEST) &&
-        array_key_exists('apellido', $_REQUEST) &&
-        array_key_exists('email', $_REQUEST) &&
-        array_key_exists('clave1', $_REQUEST)
+        array_key_exists('nombre', $_POST) &&
+        array_key_exists('apellido', $_POST) &&
+        array_key_exists('email', $_POST) &&
+        array_key_exists('clave1', $_POST)
     ) {
         $sql = "insert into usuarios (nombre, apellido, email, clave) 
                 values (?,?,?,?)";
         $stm = $conn->prepare($sql);
-        $stm->bindParam(1, $_REQUEST['nombre'], PDO::PARAM_STR, 20);
-        $stm->bindParam(2, $_REQUEST['apellido'], PDO::PARAM_STR, 20);
-        $stm->bindParam(3, $_REQUEST['email'], PDO::PARAM_STR, 50);
-        $stm->bindParam(4, $_REQUEST['clave1'], PDO::PARAM_STR, 200);
+        $stm->bindParam(1, $_POST['nombre'], PDO::PARAM_STR, 20);
+        $stm->bindParam(2, $_POST['apellido'], PDO::PARAM_STR, 20);
+        $stm->bindParam(3, $_POST['email'], PDO::PARAM_STR, 50);
+        $stm->bindParam(4, $_POST['clave1'], PDO::PARAM_STR, 200);
         $stm->execute();
         echo ('Se ingreso un usuario!<br>');
     } else {

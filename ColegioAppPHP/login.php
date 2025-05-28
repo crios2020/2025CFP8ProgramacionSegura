@@ -33,11 +33,11 @@
         $password
     );
     if (
-        array_key_exists('email', $_REQUEST) &&
-        array_key_exists('clave', $_REQUEST)
+        array_key_exists('email', $_POST) &&
+        array_key_exists('clave', $_POST)
     ) {
-        //echo($_REQUEST['email']).'<br>';
-        //echo($_REQUEST['clave']).'<br>';
+        //echo($_POST['email']).'<br>';
+        //echo($_POST['clave']).'<br>';
 
         //Almacenado en la BD
         //03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4
@@ -45,14 +45,20 @@
         //Ingresado en login
         //03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4
 
-        $sql="select * from usuarios where email='".$_REQUEST['email']."'";
+        $sql="select * from usuarios where email='".$_POST['email']."'";
 
         //echo $sql."<br>";
 
         $registros=$conn->query($sql);
 
         if($registros->rowCount()==1){
-
+            foreach ($registros as $registro) {
+                if($registro['clave']==$_POST['clave']){
+                    echo 'Bienvenido Usuario!!<br>';
+                }else{
+                    echo 'Clave Incorrecta!!<br>';
+                }
+            }
         }else{
             echo 'Usuario inexistente!<br>';
         }
