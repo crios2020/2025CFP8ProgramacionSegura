@@ -33,8 +33,13 @@ BEGIN
 END; $$
 -- Restaurar el delimitador original
 DELIMITER ;
-
+/*
 insert into usuarios (nombre, apellido, email,clave) values 
     ('Juan','Perez','JuanPerez@gmail.com','1234'),
     ('Laura','Gomez','LauraGomez@gmail.com','4321');
+*/
 select * from usuarios;
+-- delete from usuarios where id=3;
+
+select * from cursos;
+update cursos set activo=true;

@@ -1,4 +1,4 @@
--- Active: 1745609022511@@db4free.net@3306
+-- Active: 1745606726772@@127.0.0.1@3306@colegio
 -- Muestra la versión del server
 select version();
 

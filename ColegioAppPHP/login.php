@@ -20,6 +20,14 @@
 
 <?php ini_set("display_errors", "1"); ?>
 <?php
+
+
+    session_start();                //inicia la session
+    //echo session_status()."<br>";   //1 no hay session
+                                    //2 se inicio la session
+
+
+
     //Armado de connection root
     //Armar un archivo example y poner en .gitignore
     $driver = 'mysql';
@@ -44,7 +52,8 @@
         
         //Ingresado en login
         //03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4
-
+        $clave=$_POST['clave'];
+        //echo $clave;
         $sql="select * from usuarios where email='".$_POST['email']."'";
 
         //echo $sql."<br>";
@@ -53,14 +62,28 @@
 
         if($registros->rowCount()==1){
             foreach ($registros as $registro) {
+                /*
                 if($registro['clave']==$_POST['clave']){
                     echo 'Bienvenido Usuario!!<br>';
                 }else{
                     echo 'Clave Incorrecta!!<br>';
                 }
+                */
+                $sql2="select * from usuarios where email='".$_POST['email'].
+                        "' and clave=SHA2('".$clave."',512)";
+                $registros2=$conn->query($sql2);
+                if($registros2->rowCount()==1){
+                    echo 'Bienvenido Usuario!!<br>';
+                    $_SESSION['login']=true;
+                    header('Location: index.php');
+                }else{
+                    echo 'Clave Incorrecta!!<br>';
+                    $_SESSION['login']=false;
+                }
             }
         }else{
             echo 'Usuario inexistente!<br>';
+            $_SESSION['login']=false;
         }
 
         
