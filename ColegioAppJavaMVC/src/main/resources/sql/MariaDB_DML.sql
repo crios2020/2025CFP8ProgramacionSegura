@@ -22,7 +22,7 @@ INSERT INTO cursos (titulo, profesor, dia, turno, activo) VALUES
     ('Arquitectura', 'Andrés Rojas', 'JUEVES', 'MAÑANA', true),
     ('Ingeniería', 'Camila Cruz', 'VIERNES', 'TARDE', true);
     
-INSERT INTO alumnos (nombre, apellido, edad, idCurso, activo) VALUES
+INSERT INTO alumnos (nombre, apellido, edad, id_curso, activo) VALUES
     ('Juan', 'López', 20, 1, true),
     ('María', 'Gómez', 22, 2, true),
     ('Luis', 'Hernández', 25, 3, true),
