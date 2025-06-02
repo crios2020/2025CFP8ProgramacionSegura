@@ -21,14 +21,35 @@ public class TestApiStream {
             .filter(a->a.getNombre().toLowerCase().equals("paula"))
             .forEach(System.out::println);
     
-        //select * from alumnos where nombre='paula' ang apellido='gonzalez'
+        //select * from alumnos where nombre='paula' and apellido='gonzalez'
+        System.out.println("----------------------------------");
+        //ar
+        //    .getAll()
+        //    .stream()
+        //    .filter(a->a.getNombre().toLowerCase().equals("paula")
+        //            && a.getApellido().toLowerCase().equals("gonzalez"))
+        //    .forEach(System.out::println);
+        
+
+        ar
+            .getAll()
+            .stream()
+            .filter(a->a.getNombre().toLowerCase().equals("paula"))
+            .filter(a->a.getApellido().toLowerCase().equals("gonzalez"))
+            .forEach(System.out::println);
+        
+        //select * from alumnos where nombre='paula' or apellido='gonzalez'
         System.out.println("----------------------------------");
         ar
             .getAll()
             .stream()
             .filter(a->a.getNombre().toLowerCase().equals("paula")
-                    && a.getApellido().toLowerCase().equals("gonzalez"))
+                    || a.getApellido().toLowerCase().equals("gonzalez"))
             .forEach(System.out::println);
-        
+
+        //select * from alumnos where edad>=30 and edad<=40
+        System.out.println("----------------------------------");
+
+
     }
 }

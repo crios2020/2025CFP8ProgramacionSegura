@@ -29,6 +29,7 @@ public class AlumnoController{
     @Autowired
     private CursoRepository2 cursoRepository;
 
+    
     @GetMapping("/alumnos")
     public String getAlumnos(Model model, @RequestParam(name="buscar", defaultValue = "") String buscar){
         Alumno alumno=new Alumno();
