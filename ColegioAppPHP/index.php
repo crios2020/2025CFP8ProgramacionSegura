@@ -10,12 +10,7 @@
 
 <body onload="mueveReloj(), getDolar()">
 
-    <?php
-        session_start();
-        if(!isset($_SESSION['login']) && !$_SESSION['login']==true){
-            header('Location: login.php');
-        }
-    ?>
+    <?php include_once "php/front/session.php"; ?>
 
     <div class="container-lg">
 

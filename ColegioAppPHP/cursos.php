@@ -8,6 +8,9 @@
 </head>
 
 <body onload="mueveReloj()">
+
+    <?php include_once "php/front/session.php"; ?>
+
 <div class="container-lg">
 
         <!-- Menú de navegación -->
