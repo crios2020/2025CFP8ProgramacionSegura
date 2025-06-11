@@ -23,6 +23,15 @@
         <!-- Formulario de configuración -->
         <form class="p-4 bg-info-subtle">
 
+            <!-- email -->
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-3 col-form-label text-primary">User Email</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control text-primary" id="email" readonly
+                        value="<?php echo $_SESSION['email']; ?>">
+                </div>
+            </div>
+
             <!-- php Versión -->
             <div class="mb-3 row">
                 <label for="php" class="col-sm-3 col-form-label text-primary">PHP Versión</label>

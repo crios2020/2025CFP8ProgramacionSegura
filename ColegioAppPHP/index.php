@@ -20,6 +20,10 @@
         <!-- Banner -->
         <h1 class="bg-secondary-subtle text-primary text-center p-2">Sistema de Colegio</h1>
 
+        <?php 
+            echo '<h3>Bienvenido '.$_SESSION['email'].'!<h3>';
+        ?>
+
         <div class="text-center bg-info-subtle">
             <img src="images/aula.png" class="img-fluid" alt="aula de colegio">
         </div>

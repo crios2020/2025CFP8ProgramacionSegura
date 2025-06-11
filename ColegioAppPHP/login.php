@@ -75,6 +75,7 @@
                 if($registros2->rowCount()==1){
                     echo 'Bienvenido Usuario!!<br>';
                     $_SESSION['login']=true;
+                    $_SESSION['email']=$_POST['email'];
                     header('Location: index.php');
                 }else{
                     echo 'Clave Incorrecta!!<br>';

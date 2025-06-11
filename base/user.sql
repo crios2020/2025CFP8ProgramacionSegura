@@ -38,6 +38,24 @@ insert into usuarios (nombre, apellido, email,clave) values
     ('Juan','Perez','JuanPerez@gmail.com','1234'),
     ('Laura','Gomez','LauraGomez@gmail.com','4321');
 */
+
+DROP TRIGGER IF EXISTS tr_usuarios_update;
+CREATE TRIGGER tr_usuarios_update
+BEFORE UPDATE
+ON usuarios
+FOR EACH ROW
+BEGIN
+  -- Modificar el valor de la columna 'mi_columna' en la nueva fila
+  SET NEW.clave = SHA2(NEW.clave, 512);
+  --  Opcional: Agregar lógica para realizar otras modificaciones
+  --  ...
+END; $$
+-- Restaurar el delimitador original
+DELIMITER ;
+
+update usuarios set clave='1234' WHERE id=1;
+
+
 select * from usuarios;
 -- delete from usuarios where id=3;
 
