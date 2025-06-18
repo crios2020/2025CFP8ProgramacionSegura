@@ -1,93 +1,50 @@
-<form method='POST'>
-    email: <input type="email" id="email" name="email"><br>
-    password: <input type="password" id="clave" name="clave"><br>
-    <button type="reset">Borrar</button>
-    <button type="submit" onclick="cifrar()">Enviar</button>
-</form>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/utf8.min.js"></script>
-
-<script>
-    function cifrar() {
-        var input_pass = document.getElementById('clave')
-        input_pass.value=CryptoJS
-                                    .SHA256(input_pass.value)
-                                    .toString(CryptoJS.enc.Base64)     
-    }
-</script>
-
-<?php ini_set("display_errors", "1"); ?>
-<?php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>VaidrollTeamLogin6</title>
+     <link rel="stylesheet" href="css/vaidroll.css">	
+</head>
+<body>
 
 
-    session_start();                //inicia la session
-    //echo session_status()."<br>";   //1 no hay session
-                                    //2 se inicio la session
+    <div class="cajafuera">
+        <div class="formulariocaja">
+            <form method="post" name="vaidrollteam">
+                <img src="images/user1.png" alt="imagen1">
+                <img src="images/user2.png" alt="imagen2">
 
+                <input type="text" name="email" placeholder="&#128100; Email" class="cajaentradatexto">
 
+                <input type="password" name="clave" id="clave"
+                placeholder="&#128274; Password" class="cajaentradatexto">
 
-    //Armado de connection root
-    //Armar un archivo example y poner en .gitignore
-    $driver = 'mysql';
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $base = 'colegio';
-    $conn = new PDO(
-        "$driver:host=$hostname;dbname=$base",
-        $username,
-        $password
-    );
-    if (
-        array_key_exists('email', $_POST) &&
-        array_key_exists('clave', $_POST)
-    ) {
-        //echo($_POST['email']).'<br>';
-        //echo($_POST['clave']).'<br>';
+                <input type="text" name="" class="cajaentradatexto" 
+                value='
+                    <?php include_once "php/front/loginphp.php"; ?>
+                '>
 
-        //Almacenado en la BD
-        //03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4
-        
-        //Ingresado en login
-        //03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4
-        $clave=$_POST['clave'];
-        //echo $clave;
-        $sql="select * from usuarios where email='".$_POST['email']."'";
+                <input type="submit" value="Iniciar sesión" class="botonenviar" onclick="cifrar()">
+                <input type="reset" value="Cancelar" class="botonenviar">
+                <div class="ref1"><a href="subscribe.php">Registrar</a> / <a href="#">Recuperar contraseña</a></div>
+            </form>
+        </div>
+    </div> 
+    <footer>
+        © 2021 Formulario Login. Todos los derechos reservados | Diseño de VaidrollTeam 
+    </footer>
 
-        //echo $sql."<br>";
-
-        $registros=$conn->query($sql);
-
-        if($registros->rowCount()==1){
-            foreach ($registros as $registro) {
-                /*
-                if($registro['clave']==$_POST['clave']){
-                    echo 'Bienvenido Usuario!!<br>';
-                }else{
-                    echo 'Clave Incorrecta!!<br>';
-                }
-                */
-                $sql2="select * from usuarios where email='".$_POST['email'].
-                        "' and clave=SHA2('".$clave."',512)";
-                $registros2=$conn->query($sql2);
-                if($registros2->rowCount()==1){
-                    echo 'Bienvenido Usuario!!<br>';
-                    $_SESSION['login']=true;
-                    $_SESSION['email']=$_POST['email'];
-                    header('Location: index.php');
-                }else{
-                    echo 'Clave Incorrecta!!<br>';
-                    $_SESSION['login']=false;
-                }
-            }
-        }else{
-            echo 'Usuario inexistente!<br>';
-            $_SESSION['login']=false;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/utf8.min.js"></script>
+    <script>
+        function cifrar() {
+            var input_pass = document.getElementById('clave')
+            input_pass.value=CryptoJS
+                                        .SHA256(input_pass.value)
+                                        .toString(CryptoJS.enc.Base64)  
         }
-
-        
-
-    }
-?>
+    </script>
+</body>
+</html>
