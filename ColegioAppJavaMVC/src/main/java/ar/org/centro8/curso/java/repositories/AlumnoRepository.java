@@ -11,8 +11,9 @@ import ar.org.centro8.curso.java.entities.Alumno;
 import ar.org.centro8.curso.java.entities.Curso;
 import ar.org.centro8.curso.java.enums.Dia;
 import ar.org.centro8.curso.java.enums.Turno;
+import ar.org.centro8.curso.java.interfaces.I_AlumnoRepository;
 
-public class AlumnoRepository {
+public class AlumnoRepository implements I_AlumnoRepository {
     private Connection conn = Connector.getConnection();
 
     public void save(Alumno alumno) {
@@ -45,6 +46,8 @@ public class AlumnoRepository {
         }
     }
 
+    public void update(Alumno alumno){}
+
     public List<Alumno> getAll() {
         List<Alumno> list = new ArrayList();
         try (ResultSet rs = conn
@@ -64,22 +67,4 @@ public class AlumnoRepository {
         return list;
     }
 
-    public Alumno getById(int id){
-        return getAll()
-                        .stream()
-                        .filter(alumno->alumno.getId()==id)
-                        .findFirst()
-                        .orElse(new Alumno());
-    }
-
-    public List<Alumno>getLikeApellido(String apellido){
-        if(apellido==null) return new ArrayList();
-        return getAll()
-                        .stream()
-                        .filter(alumno->alumno
-                                            .getApellido()
-                                            .toLowerCase()
-                                            .contains(apellido.toLowerCase()))
-                        .toList();
-    }
 }

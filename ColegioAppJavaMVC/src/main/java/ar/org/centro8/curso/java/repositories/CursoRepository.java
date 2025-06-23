@@ -10,8 +10,9 @@ import ar.org.centro8.curso.java.connectors.Connector;
 import ar.org.centro8.curso.java.entities.Curso;
 import ar.org.centro8.curso.java.enums.Dia;
 import ar.org.centro8.curso.java.enums.Turno;
+import ar.org.centro8.curso.java.interfaces.I_CursoRepository;
 
-public class CursoRepository {
+public class CursoRepository implements I_CursoRepository {
     private Connection conn = Connector.getConnection();
 
     public void save(Curso curso) {
@@ -44,6 +45,8 @@ public class CursoRepository {
         }
     }
 
+    public void update(Curso curso){}
+
     public List<Curso> getAll() {
         List<Curso> list = new ArrayList();
         try (ResultSet rs = conn
@@ -61,25 +64,6 @@ public class CursoRepository {
             System.out.println(e);
         }
         return list;
-    }
-
-    public Curso getById(int id){
-        return getAll()
-                        .stream()
-                        .filter(curso->curso.getId()==id)
-                        .findFirst()
-                        .orElse(new Curso());
-    }
-
-    public List<Curso>getLikeTitulo(String titulo){
-        if(titulo==null) return new ArrayList();
-        return getAll()
-                        .stream()
-                        .filter(curso->curso
-                                            .getTitulo()
-                                            .toLowerCase()
-                                            .contains(titulo.toLowerCase()))
-                        .toList();
     }
 
 }
