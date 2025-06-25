@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
     <div class="cajafuera">
         <div class="formulariocaja">
             <form method="post" name="vaidrollteam">

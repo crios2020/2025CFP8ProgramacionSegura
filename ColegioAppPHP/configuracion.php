@@ -21,7 +21,7 @@
         <h1 class="bg-secondary-subtle text-primary text-center p-2">Configuración del sistema</h1>
 
         <!-- Formulario de configuración -->
-        <form class="p-4 bg-info-subtle">
+        <div class="p-4 bg-info-subtle">
 
             <!-- email -->
             <div class="mb-3 row">
@@ -71,7 +71,28 @@
                             ?>">
                 </div>
             </div>
-        </form>
+
+            <!-- Cambiar Clave -->
+            <div class="mb-3 row">
+                <label for="bd" class="col-sm-3 col-form-label text-primary">Cambiar Password</label>
+                <div class="col-sm-9">
+                    <form action="changePass.php">
+                        <button type="submit" class="btn btn-danger col-sm-3 m-2">Cambiar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Logout -->
+            <div class="mb-3 row">
+                <label for="bd" class="col-sm-3 col-form-label text-primary">Salir del Sistema</label>
+                <div class="col-sm-9">
+                    <form action="logout.php">
+                        <button type="submit" class="btn btn-danger col-sm-3 m-2">Logout</button>
+                    </form>    
+                </div>
+            </div>
+
+        </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

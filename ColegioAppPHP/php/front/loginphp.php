@@ -24,16 +24,17 @@
         $sql="select * from usuarios where email='".$_POST['email']."'";
         $registros=$conn->query($sql);
 
-        if($registros->rowCount()==1){
+        if($registros->rowCount()>=1){
             foreach ($registros as $registro) {
                 $sql2="select * from usuarios where email='".$_POST['email'].
                         "' and clave=SHA2('".$clave."',512)";
                 $registros2=$conn->query($sql2);
-                if($registros2->rowCount()==1){
+                if($registros2->rowCount()>=1){
                     echo 'Bienvenido Usuario!!';
                     $_SESSION['login']=true;
                     $_SESSION['email']=$_POST['email'];
-                    header('Location: index.php');
+                    header('Location: http://localhost/ColegioAppPHP/index.php');
+                    exit();
                 }else{
                     echo 'Clave Incorrecta!!';
                     $_SESSION['login']=false;
