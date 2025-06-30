@@ -2,7 +2,7 @@
 <%@page import="ar.com.eduit.curso.java.web.colegio.utils.SystemProperties"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- <%@ include file="/jsp/login.jsp" %> -->
+<%@ include file="/jsp/login.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
