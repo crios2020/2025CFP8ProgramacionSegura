@@ -23,5 +23,8 @@ Pendientes
 
 -- Revisar método getAll en repositorios para asegurar que muestre solo los registros activos.
 
+-- Base de datos de control de sessiones!!!!!
+
+
 
 
