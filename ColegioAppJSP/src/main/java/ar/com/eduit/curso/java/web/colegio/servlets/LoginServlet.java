@@ -2,9 +2,12 @@ package ar.com.eduit.curso.java.web.colegio.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import org.springframework.boot.web.servlet.server.Session;
 
+import ar.com.eduit.curso.java.web.colegio.connectors.Connector;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -44,6 +47,18 @@ public class LoginServlet extends HttpServlet {
                     
                     session.setAttribute("login", true);
                     session.setAttribute("user", "root");
+
+                    Connection conn=Connector.getConnection();
+                    PreparedStatement ps=conn.prepareStatement(
+                        "insert into sessiones (username, fecha_hora, accion) "+
+                        "values (?,sysdate(),?)");
+                    ps.setString(1, Connector.getUser());
+                    ps.setString(2, "LOGIN");
+                    ps.execute();
+
+                    //Iniciar la ejecución de HiloSession
+                    new Thread(new HiloSession()).start();
+
                     response.sendRedirect("/index.jsp");
                     
                 }else{

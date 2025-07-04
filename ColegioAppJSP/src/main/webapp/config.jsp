@@ -16,7 +16,7 @@
 
 		<h1 class="text-primary text-center bg-secondary-subtle">Configuración de sistema</h1>
 		
-		<form>
+		<form action="/servlets/logout">
 		
 			<!--  Sistema Operativo -->
 			<div class="mb-3 row m-2 p-2">
@@ -73,6 +73,15 @@
 					<input type="text" class="form-control text-primary bg-primary-subtle" readonly id="ip" value="" >
 				</div>
 			</div>
+
+
+            <!-- Logout -->
+            <div class="mb-3 row">
+                <label for="bd" class="col-sm-3 col-form-label text-primary">Salir del Sistema</label>
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-danger col-sm-3 m-2">Logout</button>  
+                </div>
+            </div>
 			
 		</form>
 		
